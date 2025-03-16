@@ -1,4 +1,13 @@
 #pragma once
+#include "faults_declarations.h"
+#include <stdbool.h>
+
+// Platform includes (provides IRQn_Type)
+#ifdef STM32H7
+  #include "stm32h7/stm32h7_platform_definitions.h"
+#elif defined(STM32F4)
+  #include "stm32f4/stm32f4_platform_definitions.h"
+#endif
 
 typedef struct interrupt {
   IRQn_Type irq_type;
@@ -26,6 +35,7 @@ extern interrupt interrupts[NUM_INTERRUPTS];
 extern float interrupt_load;
 
 void handle_interrupt(IRQn_Type irq_type);
+void enable_interrupt_timer(void);
 // Every second
 void interrupt_timer_handler(void);
 void init_interrupts(bool check_rate_limit);

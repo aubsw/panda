@@ -1,3 +1,12 @@
+#pragma once
+
+// Platform includes
+#ifdef STM32H7
+  #include "stm32h7/stm32h7_platform_definitions.h"
+#elif defined(STM32F4)
+  #include "stm32f4/stm32f4_platform_definitions.h"
+#endif
+
 typedef enum {
   WATCHDOG_50_MS = (400U - 1U),
   WATCHDOG_500_MS = 4000U,
