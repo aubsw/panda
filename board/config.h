@@ -2,6 +2,10 @@
 
 #include <stdbool.h>
 
+#include "can.h"
+#include "comms_definitions.h"
+#include "utils.h"
+
 //#define DEBUG
 //#define DEBUG_UART
 //#define DEBUG_USB

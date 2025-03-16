@@ -1,3 +1,14 @@
+#pragma once
+#include "critical.h"
+#include "registers_declarations.h"
+
+// Platform includes (provides GPIO_TypeDef)
+#ifdef STM32H7
+  #include "stm32h7/inc/stm32h7xx.h"
+#elif defined(STM32F4)
+  #include "stm32f4/inc/stm32f4xx.h"
+#endif
+
 #define MODE_INPUT 0
 #define MODE_OUTPUT 1
 #define MODE_ALTERNATE 2

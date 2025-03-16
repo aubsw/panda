@@ -1,5 +1,12 @@
 #pragma once
 
+// Platform includes (provides USART_TypeDef)
+#ifdef STM32H7
+  #include "stm32h7/stm32h7_platform_definitions.h"
+#elif defined(STM32F4)
+  #include "stm32f4/stm32f4_platform_definitions.h"
+#endif
+
 // IRQs: USART2, USART3, UART5
 
 // ***************************** Definitions *****************************
