@@ -117,7 +117,10 @@ def build_project(project_name, project, extra_flags):
   ]
 
   sources = [
+    env.Object(f"critical-{project_name}", f"{panda_root}/board/critical.c"),
     env.Object(f"interrupts-{project_name}", f"{panda_root}/board/drivers/interrupts.c"),
+    env.Object(f"registers-{project_name}", f"{panda_root}/board/drivers/registers.c"),
+    env.Object(f"timers-{project_name}", f"{panda_root}/board/drivers/timers.c"),
   ]
 
   bootstub_obj = env.Object(f"bootstub-{project_name}", File(project.get("BOOTSTUB", f"{panda_root}/board/bootstub.c")))

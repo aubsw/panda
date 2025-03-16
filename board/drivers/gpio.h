@@ -1,6 +1,6 @@
 #pragma once
 #include "critical.h"
-#include "registers_declarations.h"
+#include "drivers/registers.h"
 
 // Platform includes (provides GPIO_TypeDef)
 #ifdef STM32H7

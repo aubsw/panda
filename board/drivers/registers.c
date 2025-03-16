@@ -1,4 +1,4 @@
-#include "registers_declarations.h"
+#include "drivers/registers.h"
 #include "critical.h"
 #include "faults_declarations.h"
 

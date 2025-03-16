@@ -1,6 +1,6 @@
-#include "interrupts.h"
-#include "critical_declarations.h"
-#include "drivers/timers_declarations.h"
+#include "critical.h"
+#include "drivers/interrupts.h"
+#include "drivers/timers.h"
 #include "main_declarations.h"
 #include "utils.h"
 
