@@ -1,5 +1,5 @@
 #pragma once
-#include "drivers/interrupts_declarations.h"
+#include "drivers/interrupts.h"
 #include <stdint.h>
 
 // Platform includes (provides __enable_irq, __disable_irq)

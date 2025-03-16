@@ -1,5 +1,5 @@
 #pragma once
-#include "drivers/interrupts_declarations.h"
+#include "drivers/interrupts.h"
 #include "drivers/registers_declarations.h"
 
 #if defined(ENABLE_SPI) || defined(BOOTSTUB)
