@@ -84,6 +84,10 @@ def build_project(project_name, project, extra_flags):
     '..',
     panda_root,
     f"{panda_root}/board/",
+    f"{panda_root}/board/drivers/",
+    f"{panda_root}/include/",
+    f"{panda_root}/include/board/",
+    f"{panda_root}/include/board/drivers/",
     f"{panda_root}/../opendbc/safety/",
   ]
 
@@ -111,14 +115,18 @@ def build_project(project_name, project, extra_flags):
     env.Object(f"rsa-{project_name}", f"{panda_root}/crypto/rsa.c"),
     env.Object(f"sha-{project_name}", f"{panda_root}/crypto/sha.c")
   ]
+
+  sources = [
+    env.Object(f"interrupts-{project_name}", f"{panda_root}/board/drivers/interrupts.c"),
+  ]
+
   bootstub_obj = env.Object(f"bootstub-{project_name}", File(project.get("BOOTSTUB", f"{panda_root}/board/bootstub.c")))
   bootstub_elf = env.Program(f"obj/bootstub.{project_name}.elf",
-                                     [startup] + crypto_obj + [bootstub_obj])
+                           [startup] + crypto_obj + [bootstub_obj] + sources)
   env.Objcopy(f"obj/bootstub.{project_name}.bin", bootstub_elf)
 
-  # Build main
   main_obj = env.Object(f"main-{project_name}", project["MAIN"])
-  main_elf = env.Program(f"obj/{project_name}.elf", [startup, main_obj],
+  main_elf = env.Program(f"obj/{project_name}.elf", [startup, main_obj] + sources,
     LINKFLAGS=[f"-Wl,--section-start,.isr_vector={project['APP_START_ADDRESS']}"] + flags)
   main_bin = env.Objcopy(f"obj/{project_name}.bin", main_elf)
 

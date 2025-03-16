@@ -1,6 +1,6 @@
 #pragma once
 #include "drivers/timers_declarations.h"
-#include "drivers/interrupts_declarations.h"
+#include "drivers/interrupts.h"
 #include "drivers/registers_declarations.h"
 
 void timer_init(TIM_TypeDef *TIM, int psc) {

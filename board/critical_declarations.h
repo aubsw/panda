@@ -1,6 +1,6 @@
 #pragma once
 #include <stdint.h>
-#include "drivers/interrupts_declarations.h"
+#include "drivers/interrupts.h"
 
 // Platform includes (provides __enable_irq, __disable_irq)
 #ifdef STM32H7

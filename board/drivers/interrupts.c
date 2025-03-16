@@ -1,4 +1,8 @@
-#include "interrupts_declarations.h"
+#include "interrupts.h"
+#include "critical_declarations.h"
+#include "drivers/timers_declarations.h"
+#include "main_declarations.h"
+#include "utils.h"
 
 void unused_interrupt_handler(void) {
   // Something is wrong if this handler is called!
