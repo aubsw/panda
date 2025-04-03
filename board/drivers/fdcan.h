@@ -1,4 +1,13 @@
+#pragma once
 #include "fdcan_declarations.h"
+#include "can.h"
+#include "drivers/can_common.h"
+#include "drivers/interrupts.h"
+#include "drivers/led.h"
+#include "drivers/timers.h"
+#include "libc.h"
+#include "critical.h"
+
 
 FDCAN_GlobalTypeDef *cans[CANS_ARRAY_SIZE] = {FDCAN1, FDCAN2, FDCAN3};
 

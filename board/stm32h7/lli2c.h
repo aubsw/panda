@@ -1,3 +1,8 @@
+#pragma once
+#include "lli2c_declarations.h"
+#include "drivers/registers.h"
+#include "drivers/timers.h"
+#include "utils.h"
 // TODO: this driver relies heavily on polling,
 // if we want it to be more async, we should use interrupts
 

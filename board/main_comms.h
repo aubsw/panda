@@ -1,10 +1,33 @@
-extern int _app_start[0xc000]; // Only first 3 sectors of size 0x4000 are used
+#include "main_comms_declarations.h"
+#include "comms_definitions.h"
+#include "config.h"
+#include "drivers/clock_source.h"
+#include "board/can_comms.h"
+#include "drivers/can_common.h"
+#include "health.h"
+#include "power_saving.h"
+#include "provision.h"
+#include "drivers/harness.h"
+#include "drivers/fan.h"
+#include "drivers/interrupts.h"
+#include "drivers/spi.h"
+#include "drivers/timers.h"
+#include "faults.h"
+#include "drivers/bootkick.h"
+#include "drivers/uart.h"
+#include "early_init.h"
 
-// Prototypes
-void set_safety_mode(uint16_t mode, uint16_t param);
-bool is_car_safety_mode(uint16_t mode);
+#ifdef STM32H7
+  #include "drivers/fdcan.h"
+  #include "board/stm32h7/llfdcan.h"
+  #include "board/stm32h7/lluart.h"
+#else
+  #include "drivers/bxcan.h"
+  #include "board/stm32f4/llbxcan.h"
+  #include "board/stm32f4/lluart.h"
+#endif
 
-static int get_health_pkt(void *dat) {
+int get_health_pkt(void *dat) {
   COMPILE_TIME_ASSERT(sizeof(struct health_t) <= USBPACKET_MAX_SIZE);
   struct health_t * health = (struct health_t*)dat;
 

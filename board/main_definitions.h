@@ -1,4 +1,5 @@
-#include "main_declarations.h"
+#pragma once
+#include "main_definitions_declarations.h"
 
 // ********************* Globals **********************
 uint8_t hw_type = 0;

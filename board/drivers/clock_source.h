@@ -1,4 +1,7 @@
+#pragma once
 #include "clock_source_declarations.h"
+#include "gpio.h"
+#include "drivers/registers.h"
 
 void clock_source_set_period(uint8_t period) {
   register_set(&(TIM1->ARR), ((period*10U) - 1U), 0xFFFFU);

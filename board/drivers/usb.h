@@ -1,4 +1,15 @@
+#pragma once
 #include "usb_declarations.h"
+#include <stdbool.h>
+#include "comms_definitions.h"
+#include "critical.h"
+#include "utils.h"
+
+#ifdef STM32H7
+  #include "stm32h7/llusb.h"
+#elif defined(STM32F4)
+  #include "stm32f4/llusb.h"
+#endif
 
 static uint8_t response[USBPACKET_MAX_SIZE];
 

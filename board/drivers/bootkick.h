@@ -1,4 +1,9 @@
+#pragma once
 #include "bootkick_declarations.h"
+#include <stdint.h>
+#include "config.h"
+#include "drivers/harness.h"
+#include "drivers/uart.h"
 
 bool bootkick_reset_triggered = false;
 

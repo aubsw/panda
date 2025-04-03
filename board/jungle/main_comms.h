@@ -1,4 +1,25 @@
-extern int _app_start[0xc000]; // Only first 3 sectors of size 0x4000 are used
+#include "jungle/main_comms_declarations.h"
+#include "config.h"
+#include "drivers/can_common.h"
+#include "drivers/timers.h"
+#include "drivers/usb.h"
+#include "libc.h"
+#include "drivers/uart.h"
+#include "provision.h"
+#include "board/health.h"
+#include "jungle_health.h"
+#include "early_init.h"
+#include "utils.h"
+
+#ifdef STM32H7
+  #include "drivers/fdcan.h"
+  #include "board/stm32h7/llfdcan.h"
+  #include "board/stm32h7/lluart.h"
+#else
+  #include "drivers/bxcan.h"
+  #include "board/stm32f4/llbxcan.h"
+  #include "board/stm32f4/lluart.h"
+#endif
 
 bool generated_can_traffic = false;
 

@@ -1,3 +1,7 @@
+#include "clock_declarations.h"
+#include <stdbool.h>
+#include "drivers/registers.h"
+#include "platform_definitions.h"
 /*
 HSE: 25MHz
 PLL1Q: 80MHz (for FDCAN)

@@ -1,4 +1,7 @@
+#pragma once
 #include "harness_declarations.h"
+#include "gpio.h"
+#include "config.h"
 
 struct harness_t harness;
 

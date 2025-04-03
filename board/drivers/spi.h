@@ -1,7 +1,9 @@
 #pragma once
-
 #include "spi_declarations.h"
-#include "crc.h"
+#include "comms_definitions.h"
+#include "config.h"
+#include "libc.h"
+#include "utils.h"
 
 #ifdef STM32H7
 #define SPI_BUF_SIZE 2048U
