@@ -14,16 +14,16 @@ void dac_init(DAC_TypeDef *dac, uint8_t channel, bool dma) {
       } else {
         register_clear_bits(&dac->CR, DAC_CR_DMAEN1);
       }
-    register_set_bits(&dac->CR, DAC_CR_EN1);
-    break;
+      register_set_bits(&dac->CR, DAC_CR_EN1);
+      break;
     case 2:
       if (dma) {
         register_set_bits(&dac->CR, DAC_CR_DMAEN2);
       } else {
         register_clear_bits(&dac->CR, DAC_CR_DMAEN2);
       }
-    register_set_bits(&dac->CR, DAC_CR_EN2);
-    break;
+      register_set_bits(&dac->CR, DAC_CR_EN2);
+      break;
     default:
       break;
   }
@@ -35,10 +35,10 @@ void dac_set(DAC_TypeDef *dac, uint8_t channel, uint32_t value) {
   switch(channel) {
     case 1:
       register_set(&dac->DHR8R1, raw_val, 0xFFU);
-    break;
+      break;
     case 2:
       register_set(&dac->DHR8R2, raw_val, 0xFFU);
-    break;
+      break;
     default:
       break;
   }
