@@ -3,7 +3,7 @@
 #include "drivers/pwm.h"
 
 // TACH interrupt handler
-void EXTI2_IRQ_Handler(void) {
+static void EXTI2_IRQ_Handler(void) {
   volatile unsigned int pr = EXTI->PR & (1U << 2);
   if ((pr & (1U << 2)) != 0U) {
     fan_state.tach_counter++;

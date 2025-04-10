@@ -21,11 +21,8 @@ env = Environment(
     ".",
     "../../include/",
     "../../include/board/",
-    "../../include/board/drivers/",
     "../../board/",
-    "../../board/drivers/",
     "../../../opendbc/",
-    "../../../opendbc/safety/",
     ],
 )
 if system == "Darwin":

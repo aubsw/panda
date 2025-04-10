@@ -3,10 +3,10 @@
 #include <stdint.h>
 
 // ******************** Prototypes ********************
-extern void print(const char *a);
-extern void puth(unsigned int i);
-extern void puth4(unsigned int i);
-extern void hexdump(const void *a, int l);
+void print(const char *a);
+void puth(unsigned int i);
+void puth4(unsigned int i);
+void hexdump(const void *a, int l);
 typedef struct board board;
 typedef struct harness_configuration harness_configuration;
 

@@ -3,7 +3,7 @@
 #include "config.h"
 #include "drivers/led.h"
 
-void jump_to_bootloader(void) {
+static void jump_to_bootloader(void) {
   // do enter bootloader
   enter_bootloader_mode = 0;
 

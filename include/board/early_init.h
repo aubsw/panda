@@ -12,5 +12,4 @@ extern uint32_t enter_bootloader_mode;
 typedef void (*bootloader_fcn)(void);
 typedef bootloader_fcn *bootloader_fcn_ptr;
 
-void jump_to_bootloader(void); // TODO: Should this be static?
 void early_initialization(void);

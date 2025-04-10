@@ -1,7 +1,6 @@
 #include "stm32f4/llspi.h"
 #include "config.h"
 
-
 #if defined(ENABLE_SPI) || defined(BOOTSTUB)
 void llspi_miso_dma(uint8_t *addr, int len) {
   // disable DMA

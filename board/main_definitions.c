@@ -1,5 +1,6 @@
 #include "main_definitions.h"
 
+// ********************* Globals **********************
 uint8_t hw_type = 0;
 board *current_board;
 uint32_t uptime_cnt = 0;

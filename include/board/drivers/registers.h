@@ -2,7 +2,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-// cppcheck-suppress misra-c2012-2.3
 typedef struct reg {
   volatile uint32_t *address;
   uint32_t value;

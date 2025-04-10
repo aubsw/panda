@@ -29,7 +29,7 @@ static bool fdcan_request_init(FDCAN_GlobalTypeDef *FDCANx) {
   return ret;
 }
 
-static inline bool fdcan_exit_init(FDCAN_GlobalTypeDef *FDCANx) {
+static bool fdcan_exit_init(FDCAN_GlobalTypeDef *FDCANx) {
   bool ret = true;
 
   FDCANx->CCCR &= ~(FDCAN_CCCR_INIT);
