@@ -138,7 +138,7 @@ void board_v1_init(void) {
 
 void board_v1_tick(void) {}
 
-struct board board_v1 = {
+board board_v1 = {
   .has_canfd = false,
   .has_sbu_sense = false,
   .avdd_mV = 3300U,
