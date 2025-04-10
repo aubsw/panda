@@ -15,13 +15,18 @@ env = Environment(
     '-std=gnu11',
     '-Wfatal-errors',
     '-Wno-pointer-to-int-cast',
+    '-DLIBPANDA',
   ],
   CPPPATH=[
     ".",
-    "../../board/",
+    "../../include/",
     "../../include/board/",
-    "../../../opendbc/safety/"
-  ],
+    "../../include/board/drivers/",
+    "../../board/",
+    "../../board/drivers/",
+    "../../../opendbc/",
+    "../../../opendbc/safety/",
+    ],
 )
 if system == "Darwin":
   env.PrependENVPath('PATH', '/opt/homebrew/bin')
