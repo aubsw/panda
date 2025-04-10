@@ -1,6 +1,6 @@
 #pragma once
 
-#include "board_declarations.h"
+#include "boards/board_declarations.h"
 
 // ///////////////////////////
 // Tres (STM32H7) + Harness //
