@@ -1,11 +1,10 @@
 // ///////////////////////////// //
 // Red Panda (STM32H7) + Harness //
 // ///////////////////////////// //
-#include "boards/red.h"
 #include "config.h"
 #include "drivers/gpio.h"
 
-void red_enable_can_transceiver(uint8_t transceiver, bool enabled) {
+static void red_enable_can_transceiver(uint8_t transceiver, bool enabled) {
   switch (transceiver) {
     case 1U:
       set_gpio_output(GPIOG, 11, !enabled);
@@ -24,7 +23,7 @@ void red_enable_can_transceiver(uint8_t transceiver, bool enabled) {
   }
 }
 
-void red_set_can_mode(uint8_t mode) {
+static void red_set_can_mode(uint8_t mode) {
   red_enable_can_transceiver(2U, false);
   red_enable_can_transceiver(4U, false);
   switch (mode) {
@@ -75,7 +74,7 @@ uint32_t red_read_voltage_mV(void){
   return adc_get_mV(2) * 11U; // TODO: is this correct?
 }
 
-void red_init(void) {
+static void red_init(void) {
   common_init_gpio();
 
   // G11,B3,D7,B4: transceiver enable

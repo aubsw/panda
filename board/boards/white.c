@@ -23,7 +23,7 @@ void white_enable_can_transceiver(uint8_t transceiver, bool enabled) {
   }
 }
 
-void white_set_usb_power_mode(uint8_t mode){
+static void white_set_usb_power_mode(uint8_t mode){
   switch (mode) {
     case USB_POWER_CLIENT:
       // B2,A13: set client mode

@@ -1,10 +1,9 @@
 // /////////////////////////////// //
 // Black Panda (STM32F4) + Harness //
 // /////////////////////////////// //
-#include "boards/black.h"
 #include "config.h"
 
-void black_enable_can_transceiver(uint8_t transceiver, bool enabled) {
+static void black_enable_can_transceiver(uint8_t transceiver, bool enabled) {
   switch (transceiver){
     case 1U:
       set_gpio_output(GPIOC, 1, !enabled);
@@ -24,11 +23,11 @@ void black_enable_can_transceiver(uint8_t transceiver, bool enabled) {
   }
 }
 
-void black_set_usb_load_switch(bool enabled) {
+static void black_set_usb_load_switch(bool enabled) {
   set_gpio_output(GPIOB, 1, !enabled);
 }
 
-void black_set_can_mode(uint8_t mode) {
+static void black_set_can_mode(uint8_t mode) {
   black_enable_can_transceiver(2U, false);
   black_enable_can_transceiver(4U, false);
   switch (mode) {
@@ -61,12 +60,12 @@ void black_set_can_mode(uint8_t mode) {
   }
 }
 
-bool black_check_ignition(void){
+static bool black_check_ignition(void){
   // ignition is checked through harness
   return harness_check_ignition();
 }
 
-void black_init(void) {
+static void black_init(void) {
   common_init_gpio();
 
   // A8,A15: normal CAN3 mode
@@ -81,7 +80,7 @@ void black_init(void) {
   black_set_usb_load_switch(true);
 }
 
-void black_init_bootloader(void) {
+static void black_init_bootloader(void) {
   // GPS OFF
   set_gpio_output(GPIOC, 5, 0);
   set_gpio_output(GPIOC, 12, 0);

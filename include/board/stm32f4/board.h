@@ -11,9 +11,6 @@
 #include "stm32f4/llfan.h"
 #include "drivers/clock_source.h"
 #include "boards/white.h"
-#include "boards/black.h"
-#include "boards/uno.h"
-#include "boards/dos.h"
 
 extern uint8_t hw_type;
 extern struct board *current_board;

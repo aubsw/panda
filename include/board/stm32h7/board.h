@@ -15,8 +15,6 @@
 #include "drivers/fake_siren.h"
 #include "stm32h7/sound.h"
 #include "drivers/clock_source.h"
-#include "boards/red.h"
-#include "boards/cuatro.h"
 
 extern uint8_t hw_type;
 extern struct board *current_board;

@@ -2,13 +2,14 @@
 // Tres (STM32H7) + Harness //
 // ///////////////////////////
 #include "boards/tres.h"
+#include "boards/red.h"
 #include "config.h"
 #include "drivers/pwm.h"
 extern void fake_siren_set(bool enabled);
 extern struct board *current_board;
 extern struct uart_ring uart_ring_som_debug;
 
-void tres_update_fan_ir_power(void) {
+static void tres_update_fan_ir_power(void) {
   set_gpio_output(GPIOD, 3, tres_ir_enabled || tres_fan_enabled);
 }
 
@@ -18,18 +19,18 @@ void tres_set_ir_power(uint8_t percentage){
   pwm_set(TIM3, 4, percentage);
 }
 
-void tres_set_bootkick(BootState state) {
+static void tres_set_bootkick(BootState state) {
   set_gpio_output(GPIOA, 0, state != BOOT_BOOTKICK);
   set_gpio_output(GPIOC, 12, state != BOOT_RESET);
 }
 
-void tres_set_fan_enabled(bool enabled) {
+static void tres_set_fan_enabled(bool enabled) {
   // NOTE: fan controller reset doesn't work on a tres if IR is enabled
   tres_fan_enabled = enabled;
   tres_update_fan_ir_power();
 }
 
-void tres_enable_can_transceiver(uint8_t transceiver, bool enabled) {
+static void tres_enable_can_transceiver(uint8_t transceiver, bool enabled) {
   switch (transceiver) {
     case 1U:
       set_gpio_output(GPIOG, 11, !enabled);
@@ -94,7 +95,7 @@ bool tres_read_som_gpio (void) {
   return (get_gpio_input(GPIOC, 2) != 0);
 }
 
-void tres_init(void) {
+static void tres_init(void) {
   // Enable USB 3.3V LDO for USB block
   register_set_bits(&(PWR->CR3), PWR_CR3_USBREGEN);
   register_set_bits(&(PWR->CR3), PWR_CR3_USB33DEN);
