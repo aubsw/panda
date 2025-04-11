@@ -1,6 +1,8 @@
 // ********************* Bare interrupt handlers *********************
 // Interrupts for STM32H7x5
 #pragma once
+#include "drivers/interrupts.h"
+
 
 void WWDG_IRQHandler(void) {handle_interrupt(WWDG_IRQn);}
 void PVD_AVD_IRQHandler(void) {handle_interrupt(PVD_AVD_IRQn);}

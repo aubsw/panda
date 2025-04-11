@@ -3,10 +3,16 @@
 #include "can.h"
 #include "comms_definitions.h"
 
+#ifdef PANDA_JUNGLE
+#include "jungle/stm32f4/board.h"
+#else
+#include "stm32f4/board.h"
+#endif
+
 #ifndef BOOTSTUB
   #include "main_definitions.h"
 #else
-  #include "bootstub_declarations.h"
+  #include "bootstub_definitions.h"
 #endif
 
 #include "libc.h"
@@ -20,7 +26,7 @@
 #include "stm32f4/peripherals.h"
 #include "stm32f4/interrupt_handlers.h"
 #include "drivers/timers.h"
-#include "stm32f4/board.h"
+
 #include "stm32f4/clock.h"
 #include "drivers/watchdog.h"
 
