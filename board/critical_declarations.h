@@ -1,4 +1,6 @@
 #pragma once
+#include <stdint.h>
+#include <stdbool.h>
 
 // ********************* Critical section helpers *********************
 void enable_interrupts(void);

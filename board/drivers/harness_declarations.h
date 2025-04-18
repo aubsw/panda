@@ -1,4 +1,6 @@
 #pragma once
+#include <stdbool.h>
+#include <stdint.h>
 
 #define HARNESS_STATUS_NC 0U
 #define HARNESS_STATUS_NORMAL 1U

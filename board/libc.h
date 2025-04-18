@@ -1,4 +1,5 @@
 // **** libc ****
+#include "libc_declarations.h"
 
 void delay(uint32_t a) {
   volatile uint32_t i;
@@ -24,9 +25,6 @@ void *memset(void *str, int c, unsigned int n) {
   }
   return str;
 }
-
-#define UNALIGNED(X, Y) \
-  (((uint32_t)(X) & (sizeof(uint32_t) - 1U)) | ((uint32_t)(Y) & (sizeof(uint32_t) - 1U)))
 
 // cppcheck-suppress misra-c2012-21.2
 void *memcpy(void *dest, const void *src, unsigned int len) {

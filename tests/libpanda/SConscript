@@ -18,6 +18,7 @@ env = Environment(
   ],
   CPPPATH=[
     ".",
+    "../../include/board/",
     "../../board/",
     "../../../opendbc/",
     "../../../opendbc/safety/",
